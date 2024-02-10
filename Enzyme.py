@@ -11,6 +11,17 @@ def replace_in_sequence(dna_sequence: DNA.DNASequence, seq, replacement):
         index = dna_sequence.find_alignment(seq)
 
 
+def enzyme_from_name(name, params: list):
+    if name == "Mutase":
+        return Mutase(params.pop(0))
+    elif name == "Crispr":
+        return Crispr(params.pop(0))
+    elif name == "Crispr/Cas9":
+        return Crispr_Cas9(params.pop(0), params.pop(0))
+    elif name == "Polymerase":
+        return Polymerase()
+
+
 class Enzyme:
 
     def process(self, dna_sequence: DNA.DNASequence):
