@@ -49,3 +49,11 @@ class Crispr_Cas9(Crispr):
         super().process(dna_sequence)
         replace_in_sequence(dna_sequence, 'W', self.new_seq)
 
+
+class Polymerase(Enzyme):
+
+    def __init__(self):
+        super().__init__()
+
+    def process(self, dna_sequence: DNA.DNASequence):
+        dna_sequence.replace_sequence(dna_sequence.get_sequence())
